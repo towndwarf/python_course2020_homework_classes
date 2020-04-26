@@ -16,7 +16,7 @@ class Lecturer(Person):
     def teaches_students(self, students: frozenset):
         d = self.cmp_own_courses_to_persons(students)
         courses_cnt = len(d)
-        ret = f'Lecturer {self.__str__()}\n in year {self.study_year} teaches'
+        ret = f'Lecturer {self.name}\n in year {self.study_year} teaches'
         if courses_cnt == 0:
             return ret + 'no courses.'
         else:
