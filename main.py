@@ -1,39 +1,27 @@
 import datetime  # we will use this for date objects
-import person
-import student
-import lecturer
-# import worker
+from person import Person
+from student import Student
+from lecturer import Lecturer
 
-p = person.Person(
-    "שירלי",
-    "משולם",
-    datetime.date(1992, 3, 12),  # year, month, day
-    "רח' שבי בשקט 13",
-    #"012 12345678",
-    #"sh.meshulam@example.com",
-    123456
-)
-print('tst')
-#  p.__name = 'whatewer2'
-print(p.name())
-#  print(p.__email)
-print(p.age())
+student1 = Student("Muhammad", "Ben-Ami", datetime.date(1990, 1, 11)
+                   , "Some street 13 at Some City", 15,
+                   frozenset(['Python', 'Java']),
+                   2020)
+student2 = Student("Iris", "York", datetime.date(1982, 4, 16)
+                   , "Some street 14 at Some City", 16,
+                   frozenset(['Python', 'C#']), 2020)
+print('--------')
+lecturer1 = Lecturer('Whoever', 'Ben-Zakkai', datetime.date(1979, 1, 3)
+                   , 'Some addr', 19,
+                   frozenset(['Python', 'Advanced Algorithms']), 2020)
 
-student1 = student.Student("Muhammad", "Ben-Ami", datetime.date(1990, 1, 11)
-                           , "Some street 13 at Some City", 15,
-                           ('Python','Java'),
-                           2020)
-student2 = student.Student("Iris", "York", datetime.date(1982, 4, 16)
-                           , "Some street 14 at Some City", 16, ('Python','C#'), 2020)
 student1.takes_courses()
+print('--------')
 student2.takes_courses()
 
-lecturer1 = lecturer.Lecturer('Whoever','Ben-Zakkai',datetime.date(1979, 1, 3)
-                              , 'Some addr',19, ('Python','Advanced Algorithms'), 2020)
 
-if lecturer1.teaches_something(student1) :
-    print(f"{lecturer1.name()} {lecturer1.surname()} teaches {student1.takes_courses_from(lecturer1)}")
-
-print(f"{student1.name()} and {student2.name()} study \
-        {lecturer1.taught_students([student1, student2])} \
-        from {lecturer1.name()}")
+ret = lecturer1.teaches_students(frozenset([student1, student2]))
+print(ret)
+print('--------')
+ret = student1.name + ' \n' + student1.takes_courses_from(frozenset([lecturer1]))
+print(ret)

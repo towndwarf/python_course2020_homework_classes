@@ -1,29 +1,32 @@
-import datetime  # we will use this for date objects
+from datetime import date  # we will use this for date objects
 
 
 class Person:
 
-    def __init__(self, name: str, surname: str, birth_date: datetime.date, address: str, person_id: int):
+    def __init__(self, name: str, surname: str, birth_date: date,
+                 address: str,
+                 person_id: int,
+                 courses: frozenset = (),
+                 study_year: int = 0
+                 ):
         self.__name = name
         self.__surname = surname
         self.__birth_date = birth_date
         self.__address = address
-        # self.__telephone = telephone
+        # self.__phone = phone
         # self.__email = email
         self.__id = person_id
+        self.__courses = courses
+        self.__study_year = study_year
 
     def __str__(self):
-        return f'שמי הפרטי הוא:{self.__name}' \
-               f'-----' \
-               f' שם משפחתי הוא:{self.__surname}' \
-               f'-----' \
-               f' אני גר(ה) ב:{self.__address}'
+        return f'name: {self.name}; address: {self.__address};'
 
     def age(self):
-        today = datetime.date.today()
+        today = date.today()
         age = today.year - self.birth_date.year
 
-        if today < datetime.date(today.year, self.birth_date.month, self.birth_date.day):
+        if today < date(today.year, self.birth_date.month, self.birth_date.day):
             age -= 1
 
         return age
@@ -69,3 +72,36 @@ class Person:
     def id(self, value):
         self.__id = value
 
+    @property
+    def study_year(self):
+        return self.__study_year
+
+    @study_year.setter
+    def study_year(self, value):
+        self.__study_year = value
+
+    @property
+    def courses(self):
+        return self.__courses
+
+    @courses.setter
+    def courses(self, value):
+        self.__courses = value
+
+    def print_courses(self):
+        ret = ''
+        for c in self.__courses:
+            ret += c + ', '
+        ret.rstrip(', ')
+        return f'{ret} in {self.__study_year}'
+
+    # returns dictionary - course: person
+    def cmp_own_courses_to_persons(self, persons: frozenset) -> dict:
+        d = dict()
+        for crs in self.courses:
+            for lct in persons:
+                common_courses_to_persons = frozenset([crs]) & lct.courses
+                if common_courses_to_persons != frozenset():
+                    for i in common_courses_to_persons:
+                        d[lct] = common_courses_to_persons
+        return d
