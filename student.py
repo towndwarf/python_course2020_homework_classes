@@ -4,8 +4,7 @@ from datetime import date  # we will use this for date objects
 
 
 class Student(Person):
-    def __init__(self, name: str, surname: str, birth_date: date, address: str
-                 , person_id: int, courses: frozenset,
+    def __init__(self, name: str, surname: str, birth_date: date, address: str, person_id: int, courses: frozenset,
                  study_year: int) -> None:
         super().__init__(name, surname, birth_date, address, person_id, courses, study_year)
 
