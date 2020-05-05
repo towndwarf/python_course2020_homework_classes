@@ -5,21 +5,21 @@ from datetime import date
 
 class Lecturer(Person):
     def __init__(self
-	            , name: str
-	            , surname: str
-	            , birth_date: date
-				, address: str
-                , person_id: int
-				, courses: frozenset
-                , study_year: int
-				, hourly_rate: float
-				) -> None:
+                 , name: str
+                 , surname: str
+                 , birth_date: date
+                 , address: str
+                 , person_id: int
+                 , courses: frozenset
+                 , study_year: int
+                 , hourly_rate: float
+                 ) -> None:
         super().__init__(name, surname, birth_date, address, person_id, courses, study_year)
 
     @property
     def hourly_rate(self) -> float:
         return self.__hourly_rate
-	
+
     @hourly_rate.setter
     def hourly_rate(self, hourly_rate: float) -> None:
         self.__hourly_rate = hourly_rate
@@ -36,11 +36,6 @@ class Lecturer(Person):
         else:
             ret = f'{ret}: '
 
-
         for course in d:
             ret += f"\n{str((list(d[course])))} to {course}"
         return ret
-
-	
-	
-
