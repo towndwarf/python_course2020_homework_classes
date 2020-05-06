@@ -38,7 +38,7 @@ class Person:
         return self.__age
 
     # just for simplifying the output, in general there should be 2 functions :)
-    @property # => self.__name
+    @property
     def name(self):
         return self.__name + ' ' + self.__surname
 
@@ -113,3 +113,6 @@ class Person:
                     for i in common_courses_to_persons:
                         d[lct] = common_courses_to_persons
         return d
+
+
+

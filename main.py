@@ -18,9 +18,6 @@ print('--------')
 lecturer1 = Lecturer('Whoever', 'Ben-Zakkai', datetime.date(1979, 1, 3)
                      , 'Some addr', 19,
                      frozenset(['Python', 'Advanced Algorithms']), 2020, 150)
-
-
-
 student1.takes_courses()
 print('--------')
 student2.takes_courses()

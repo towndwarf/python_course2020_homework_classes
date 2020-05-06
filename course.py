@@ -16,6 +16,8 @@ class Course:
     def __set_name(self, name):
         self.__name = name
 
+    a = property(__get_name, __set_name)
+
     def __get_lecturer(self):
         return self.__lecturer
 
