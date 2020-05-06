@@ -10,10 +10,16 @@ student1 = Student("Muhammad", "Ben-Ami", datetime.date(1990, 1, 11)
 student2 = Student("Iris", "York", datetime.date(1982, 4, 16)
                    , "Some street 14 at Some City", 16,
                    frozenset(['Python', 'C#']), 2020)
+# student2.name = 'Boris'
+student2.surname = 'Sholkov'
+# student1.name = student2.name
+print(student2.birth_date.month)
 print('--------')
 lecturer1 = Lecturer('Whoever', 'Ben-Zakkai', datetime.date(1979, 1, 3)
                      , 'Some addr', 19,
                      frozenset(['Python', 'Advanced Algorithms']), 2020, 150)
+
+
 
 student1.takes_courses()
 print('--------')

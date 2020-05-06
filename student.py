@@ -1,5 +1,7 @@
 from person import Person
 from datetime import date  # we will use this for date objects
+
+
 # import lecturer
 
 
@@ -14,7 +16,6 @@ class Student(Person):
             ret += crs + ', '
         print(f"{str(self)}\n Courses in year {self.study_year}: {ret.rstrip(', ')}\n")
 
-
     # returns dictionary - course: lecturer
     # lecturers - frozenset of Lecturer
     def takes_courses_from(self, lecturers: frozenset) -> str:
@@ -23,6 +24,8 @@ class Student(Person):
         for i in d:
             ret += f'\n - {str(list(d[i]))} from {str(i.name)}'
         return ret
+
+
 """
         d = dict()
         for crs in self.courses:
@@ -32,4 +35,3 @@ class Student(Person):
                     d[crs] = lecturer_who_teaches_course
         return d
 """
-

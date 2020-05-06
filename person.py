@@ -20,7 +20,7 @@ class Person:
         self.__study_year = study_year
         self.__age_date_stored = None
         self.__age = 0
-        self.__age = self.age()
+        self.age()
 
     def __str__(self):
         return f'name: {self.name}; address: {self.__address};'
@@ -28,17 +28,17 @@ class Person:
     def age(self):
         today = date.today()
         age = today.year - self.birth_date.year
-        if today < date(today.year, self.birth_date.month, self.birth_date.day):
-            age -= 1
         if self.__age == 0 \
                 or self.__age_date_stored != today \
                 or self.__age != age:
             self.__age_date_stored = today
             self.__age = age
+        if today < date(today.year, self.birth_date.month, self.birth_date.day):
+            age -= 1
         return self.__age
 
     # just for simplifying the output, in general there should be 2 functions :)
-    @property
+    @property # => self.__name
     def name(self):
         return self.__name + ' ' + self.__surname
 
