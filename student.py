@@ -1,12 +1,17 @@
 from person import Person
 from datetime import date  # we will use this for date objects
-
+from course import Course
 
 # import lecturer
 
 
 class Student(Person):
-    def __init__(self, name: str, surname: str, birth_date: date, address: str, person_id: int, courses: frozenset,
+    def __init__(self, name: str,
+                 surname: str,
+                 birth_date: date,
+                 address: str,
+                 person_id: int,
+                 courses: frozenset,
                  study_year: int) -> None:
         super().__init__(name, surname, birth_date, address, person_id, courses, study_year)
 
@@ -25,6 +30,14 @@ class Student(Person):
             ret += f'\n - {str(list(d[i]))} from {str(i.name)}'
         return ret
 
+    def get_my_courses_as_str(self) -> str:
+        pass
+
+    def get_my_schedule_as_str(self)-> str:
+        pass
+
+    def who_teaches_me_as_str(self, crs: Course) -> str:
+        pass
 
 """
         d = dict()

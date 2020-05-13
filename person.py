@@ -114,5 +114,7 @@ class Person:
                         d[lct] = common_courses_to_persons
         return d
 
+    def who_am_i(self) -> str:
+        return "I'm a base :" + str(type(self))
 
 

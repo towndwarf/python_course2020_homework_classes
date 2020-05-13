@@ -1,6 +1,7 @@
 from person import Person
 from student import Student
 from datetime import date
+from course import Course
 
 
 class Lecturer(Person):
@@ -39,3 +40,12 @@ class Lecturer(Person):
         for course in d:
             ret += f"\n{str((list(d[course])))} to {course}"
         return ret
+
+    # שתחזיר סטודנטים (שם) לפי הקורס
+    def i_teach_courses_as_str(self) -> str:
+        pass
+
+    # שתחזיר כל קורסים של המרצה
+    def who_takes_my_course_as_str(self, course: Course) -> str:
+        pass
+
